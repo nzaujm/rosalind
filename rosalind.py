@@ -1,8 +1,8 @@
 import os        # filename manipulations
 import shutil    # moving files from one directory to another
 
-DOWNLOAD_DIR = "/Users/Nzau/Downloads"
-INPUTS_DIR = "/Users/Nzau/Desktop/Python/rosalind/inputs"
+DOWNLOAD_DIR = os.path.expanduser("~/Downloads")
+INPUTS_DIR = os.path.expanduser("~/Desktop/Python/rosalind/inputs")
 
 def make_path(directory, alias):
 	return os.path.join(directory, "rosalind_%s.txt" % alias)

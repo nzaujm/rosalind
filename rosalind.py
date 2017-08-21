@@ -4,6 +4,9 @@ import shutil    # moving files from one directory to another
 DOWNLOAD_DIR = os.path.expanduser("~/Downloads")
 ROSALIND_DIR, _ = os.path.split(os.path.realpath(__file__))
 INPUTS_DIR = os.path.join(ROSALIND_DIR, "inputs")
+if not os.path.isdir(INPUTS_DIR):
+	os.mkdir(INPUTS_DIR)
+	print "Created Input Folder: %s" % INPUTS_DIR
 
 def make_path(directory, alias):
 	return os.path.join(directory, "rosalind_%s.txt" % alias)

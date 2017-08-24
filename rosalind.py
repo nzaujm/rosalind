@@ -3,6 +3,7 @@ import shutil    # moving files from one directory to another
 
 DOWNLOAD_DIR = os.path.expanduser("~/Downloads")
 ROSALIND_DIR, _ = os.path.split(os.path.realpath(__file__))
+OUTPUTS_DIR = os.path.join(ROSALIND_DIR, "outputs")
 INPUTS_DIR = os.path.join(ROSALIND_DIR, "inputs")
 if not os.path.isdir(INPUTS_DIR):
 	os.mkdir(INPUTS_DIR)
@@ -28,3 +29,7 @@ def get_string(alias):
 	move_input(alias)
 	return get_input(alias)
 
+def create_output(alias, output):
+	with open(os.path.join(OUTPUTS_DIR,"rosalind_%s_results.txt" % alias), "w") as f:
+		f.write(output)
+		f.close()
